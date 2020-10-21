@@ -18,6 +18,7 @@ int Splitter::split() {
     while (!fin.eof()) {
         getline(fin, str);
         h_val = hash(str);
+        // Hash on the last hash result.
         for (int i=0; i<level; ++i) {
             h_val = i_hash(h_val);
         }

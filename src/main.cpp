@@ -8,6 +8,7 @@
 #include "topk_conuter.h"
 
 
+// Memory monitoring routine. Thread routine to show current memory usage of the process.
 void monitor_routine(bool& complete) {
     size_t virt = 0, res = 0, shr = 0;
     size_t peak_res = 0;
@@ -41,7 +42,7 @@ int main(int argc,char *argv[]) {
             std::cout << "-h : help\n";
             std::cout << "-k : top `k` value\n";
             std::cout << "-f : input file path\n";
-            std::cout << "-n : temp file number\\n";
+            std::cout << "-n : splitted temp file number\\n";
             std::cout << "-m : max hashmap element size (m*1024)\n";
             std::cout << "-s : expected subfile size (MB)";
             std::cout << "-l : output memory monitoring log " << std::endl;

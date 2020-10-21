@@ -16,7 +16,7 @@ void TopkCounter::process_subfile(const std::string& filename, int level) {
     while (!fin.eof()) {
         getline(fin, str);
         ++counter[str];
-        /* if counter size > maxHashmap, memory may run out soon */
+        // If counter size > `maxHashmap`, memory may run out soon.
         if (counter.size() > maxHashmap) {
             need_to_split = true;
             break;
@@ -24,9 +24,9 @@ void TopkCounter::process_subfile(const std::string& filename, int level) {
     }
     fin.close();
     if (need_to_split) {
-        /* clear hashmap */
+        // Clear hashmap.
         std::unordered_map<std::string, size_t>().swap(counter);
-        /* release heap */
+        // Release free heap memory.
         malloc_trim(0);
         split_and_process(filename, level+1);
         return;
@@ -51,7 +51,7 @@ void TopkCounter::split_and_process(const std::string& filename, int level) {
     struct stat statbuf;
     stat(filename.c_str(), &statbuf);
     n = (statbuf.st_size+fileSize-1) / fileSize;
-    n = n > 1 ? n : 2;  // split into at least 2 parts
+    n = n > 1 ? n : 2;  // Split into at least 2 parts.
 
     Splitter splitter(n, filename, filename, level);
     splitter.split();
