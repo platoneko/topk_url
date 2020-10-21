@@ -42,9 +42,9 @@ int main(int argc,char *argv[]) {
             std::cout << "-h : help\n";
             std::cout << "-k : top `k` value\n";
             std::cout << "-f : input file path\n";
-            std::cout << "-n : splitted temp file number\\n";
+            std::cout << "-n : splitted temp file number\n";
             std::cout << "-m : max hashmap element size (m*1024)\n";
-            std::cout << "-s : expected subfile size (MB)";
+            std::cout << "-s : expected subfile size (MB)\n";
             std::cout << "-l : output memory monitoring log " << std::endl;
             exit(0);
         case 'k':
